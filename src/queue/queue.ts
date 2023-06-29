@@ -24,7 +24,7 @@ export class Queue<T>{
             return null;
         
         let item = this.list[0]
-        this.list.slice(1)
+        this.list.splice(0,1)
         return item
     }
 
@@ -49,5 +49,13 @@ export class Queue<T>{
      */
     toArray(): T[]{
         return this.list
+    }
+
+    /**
+     * @returns {String}
+     * Returns string representation of the queue
+     */
+    toString(): string{
+        return this.list.toString()
     }
 }

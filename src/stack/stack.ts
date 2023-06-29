@@ -57,4 +57,11 @@ export class Stack{
         return this.data;
     }
 
+    /**
+     * Returns string representation of the stack
+     */
+    toString(callback ?: (item: any) => string): string{
+        return [...this.data].reverse().map( item => callback ? callback(item) : `${item}`).join(','); 
+    }
+
 }
