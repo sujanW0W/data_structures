@@ -8,5 +8,6 @@ In computer science, a data structure is a data organization, management, and st
 
 -   [Stack](src/stack) - a linear data structure that follows LIFO principle;
 -   [Queue](src/queue) - a linear data structure that follows FIFO principle;
+-   [Linked List](src/linked_list) - a data structure with linked nodes;
 
 Learning & Practicing implementation of data structures in TypeScript.
