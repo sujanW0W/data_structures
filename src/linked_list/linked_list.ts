@@ -199,7 +199,7 @@ export class LinkedList{
             if(callback && callback(node.value))
                 return node;
 
-            if(this.comparator(node.value, value) === 0){
+            if(value && this.comparator(node.value, value) === 0){
                 return node;
             }
 
