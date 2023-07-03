@@ -189,13 +189,52 @@ export class LinkedList{
     /**
      * Find an element in the linked list
      */
+    search(value?: any, callback?: (value: any) => boolean ): NextNode {
+        let node: NextNode = this.head;
 
+        if(node == null)
+            return null;
+
+        while(node != null){
+            if(callback && callback(node.value))
+                return node;
+
+            if(this.comparator(node.value, value) === 0){
+                return node;
+            }
+
+            node  = node.next;
+        }
+
+        return null;
+
+    }
+    
 
 
     /**
      * Reverse a linked list
      */
+    reverse() : LinkedList | null {
+        if(this.head == null)
+            return null;
+    
+        let prevNode: NextNode = null;
+        let curNode: NextNode = this.head;
+        let nextNode: NextNode = curNode && curNode.next
 
+        this.tail = curNode;
+        while(curNode != null){
+            curNode.next = prevNode;
+
+            prevNode = curNode;
+            curNode = nextNode;
+            nextNode = nextNode ? nextNode.next : null
+        }
+        this.head = prevNode
+
+        return this;
+    }
 
 
     /**

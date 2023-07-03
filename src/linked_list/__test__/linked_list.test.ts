@@ -105,6 +105,59 @@ describe('LinkedList', () => {
         const deletedNode = linkedList.deleteAtPos(2)
         expect(deletedNode?.toString()).toBe('3')
         expect(linkedList?.toString()).toBe('1,2,4')
+    })
+
+    /**
+     * Searching Test
+     */
+
+    it('should find the node with given value', () => {
+        const linkedList = new LinkedList()
+        expect(linkedList.search(2)).toBeNull();
+
+        linkedList.append(1)
+        linkedList.append(2)
+        linkedList.append(3)
+        
+        expect(linkedList.search(2)).toBeDefined()
+
+        linkedList.deleteAtPos(1)
+        expect(linkedList.search(2)).toBeNull();
+
+    })
+
+    it('should perform search operation with callback correctly', () => {
+        const linkedList = new LinkedList()
+        linkedList.append({key: 'key1', value: 'value1'})
+        linkedList.append({key: 'key2', value: 'value2'})
+        linkedList.append({key: 'key3', value: 'value3'})
+
+        expect(linkedList.search()).toBeNull()
+
+        const callback = (obj: any) => obj.key == 'key2'
+        const test =linkedList.search(null, callback)
+        expect(test?.value.value).toBe('value2')
+    })
+
+
+    /**
+     * Reverse Test
+     */
+    it('should return the reversed linked list', () => {
+        const linkedList = new LinkedList()
+        linkedList.append(1)
+        linkedList.append(2)
+        linkedList.append(3)
+        linkedList.append(4)
+
+        expect(linkedList.toString()).toBe('1,2,3,4')
+        expect(linkedList.head?.toString()).toBe(`1`)
+        expect(linkedList.tail?.toString()).toBe(`4`)
+
+        const reversedList = linkedList.reverse()
+        expect(reversedList?.toString()).toBe('4,3,2,1')
+        expect(reversedList?.head?.toString()).toBe(`4`)
+        expect(reversedList?.tail?.toString()).toBe(`1`)
 
     })
 })
