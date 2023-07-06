@@ -10,6 +10,6 @@ In computer science, a data structure is a data organization, management, and st
 -   [Queue](src/queue) - a linear data structure that follows FIFO principle;
 -   [Linked List](src/linked_list) - a singly linked list
 -   [Doubly Linked List](src/doubly_linked_list) - a doubly linked list;
--   [Hash Table](src/hash_table) - a doubly linked list;
+-   [Hash Table](src/hash_table) - a lookup table, key is hashed and resulting hash indicates where the corresponding value is stored;
 
 Learning & Practicing implementation of data structures in TypeScript.
